@@ -5,20 +5,11 @@
 
 int[,] FindNumbers(int[,] array)
 {
-    for(int i = 0; i < array.GetLength(0) -1; i++)
+    for(int i = 0; i < array.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(1) -1; j++)
+        for(int j = 0; j < array.GetLength(1); j++)
         {
-            if(i % 2 == 0)
-            {
-                i++;
-            }
-            else
-            if(j % 2 == 0)
-            {
-                j++;
-            }
-            else
+            if(i % 2  != 0 && j % 2 != 0)
             {
                 array[i,j]  = array[i,j] * array[i,j];
             }
@@ -63,12 +54,13 @@ void PrintArray2D(int[,] array)    // метод печати двумергно
 }
 
 
-int rows = 3;
+int rows = 4;
 int columns = 4;
 int minValue = 1;
-int maxValue = 3;
+int maxValue = 7;
 int[,] array2D = GetRandom2DArray(rows, columns, minValue, maxValue);
 PrintArray2D(array2D);
 
 int[,] array2DAndSquare = FindNumbers(array2D);
+
 PrintArray2D(array2DAndSquare);
